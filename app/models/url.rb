@@ -1,9 +1,9 @@
 class Url < ApplicationRecord
   include EncodingDecodingBijective
 
-  after_create :update_shortened
+  after_create :set_short_url
 
-  def update_shortened
-    update(shortened: bijective_encode(id))
+  def set_short_url
+    update(short_url: bijective_encode(id))
   end
 end

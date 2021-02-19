@@ -23,8 +23,8 @@ RSpec.describe 'Urls', type: :request do
 
     it 'creates url with slug' do
       expect(response).to have_http_status(201)
-      expect(result['shortened']).to_not be_nil
-      expect(result['id']).to eq(url.bijective_decode(url.shortened))
+      expect(result['short_url']).to_not be_nil
+      expect(result['id']).to eq(url.bijective_decode(url.short_url))
     end
   end
 end
