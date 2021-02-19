@@ -1,5 +1,7 @@
 #  Url Shortener API
 
+Available on https://r6-url-shortener.herokuapp.com/
+
 ## Setup
 
 `docker-compose up --build`
