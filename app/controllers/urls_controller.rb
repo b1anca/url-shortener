@@ -53,6 +53,6 @@ class UrlsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def url_params
-    params.require(:url).permit(:origin)
+    params.require(:url).permit(:origin, :clicks)
   end
 end

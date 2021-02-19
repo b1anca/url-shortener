@@ -37,4 +37,26 @@ RSpec.describe 'Urls', type: :request do
       expect(result['origin']).to eq(url.origin)
     end
   end
+
+  describe 'PUT /urls/:id' do
+    let!(:url) { create(:url) }
+
+    before { put "/urls/#{url.id}", params: { url: { clicks: 100 }} }
+
+    it 'returns updated url' do
+      expect(response).to have_http_status(:ok)
+      expect(result['clicks']).to eq(100)
+    end
+  end
+
+  describe 'DELETE /urls/:id' do
+    let!(:url) { create(:url) }
+
+    before { delete "/urls/#{url.id}" }
+
+    it 'deletes url' do
+      expect(response).to have_http_status(204)
+      expect(Url.count).to eq(0)
+    end
+  end
 end
