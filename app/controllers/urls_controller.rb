@@ -10,7 +10,7 @@ class UrlsController < ApplicationController
 
   # GET /s/a
   def short
-    @url = Url.find_by_slug(params[:slug])
+    @url = Url.find_by(slug: params[:slug])
     render json: { origin: @url.origin }
   end
 

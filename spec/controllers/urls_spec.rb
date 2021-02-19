@@ -41,7 +41,7 @@ RSpec.describe 'Urls', type: :request do
   describe 'PUT /urls/:id' do
     let!(:url) { create(:url) }
 
-    before { put "/urls/#{url.id}", params: { url: { clicks: 100 }} }
+    before { put "/urls/#{url.id}", params: { url: { clicks: 100 } } }
 
     it 'returns updated url' do
       expect(response).to have_http_status(:ok)
