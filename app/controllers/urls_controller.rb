@@ -1,9 +1,11 @@
 class UrlsController < ApplicationController
   before_action :set_url, only: %i[show update destroy]
 
+  LIMIT = 100
+
   # GET /urls
   def index
-    @urls = Url.all.order(clicks: :desc)
+    @urls = Url.all.order(clicks: :desc).limit(LIMIT)
 
     render json: @urls
   end
