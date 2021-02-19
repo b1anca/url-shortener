@@ -8,6 +8,12 @@ class UrlsController < ApplicationController
     render json: @urls
   end
 
+  # GET /s/a
+  def short
+    @url = Url.find_by_slug(params[:slug])
+    render json: { origin: @url.origin }
+  end
+
   # GET /urls/1
   def show
     render json: @url
