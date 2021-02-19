@@ -1,4 +1,4 @@
-#  Url Shortener API
+#  URL Shortener API
 
 Available on https://r6-url-shortener.herokuapp.com/
 
