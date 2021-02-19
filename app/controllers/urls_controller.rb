@@ -1,5 +1,5 @@
 class UrlsController < ApplicationController
-  before_action :set_url, only: [:show, :update, :destroy]
+  before_action :set_url, only: %i[show update destroy]
 
   # GET /urls
   def index
@@ -39,13 +39,14 @@ class UrlsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_url
-      @url = Url.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def url_params
-      params.require(:url).permit(:origin)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_url
+    @url = Url.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def url_params
+    params.require(:url).permit(:origin)
+  end
 end
